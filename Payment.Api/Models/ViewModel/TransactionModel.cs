@@ -1,6 +1,7 @@
 ﻿using Payment.Api.Extensions;
 using Payment.Api.Models.Validations;
 using Payment.API.Models.EntityModel;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Payment.API.Models.ViewModel
@@ -14,7 +15,8 @@ namespace Payment.API.Models.ViewModel
         [Display(Name = "grossAmount"), JsonRequired, JsonCurrency]
         public decimal GrossAmount { get; set; }
 
-        [Display(Name = "installments")]
+        [Display(Name = "installments"), JsonRequired, JsonInstallments]
+        [DefaultValue(1)]
         public int Installments { get; set; }
 
         public Transaction Map()

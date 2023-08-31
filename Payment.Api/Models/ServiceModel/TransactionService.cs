@@ -94,7 +94,7 @@ namespace Payment.Api.Models.ServiceModel
 
         private void GenerateInstallments(Transaction transaction)
         {
-            var installmentAmount = transaction.GrossAmount / transaction.Installments;
+            var installmentAmount = transaction.GrossAmount / (transaction.Installments == 0 ? 1 : transaction.Installments);
             var paymentDate = transaction.TransactionDate;
 
             for (int i = 1; i <= transaction.Installments; i++)
@@ -103,7 +103,7 @@ namespace Payment.Api.Models.ServiceModel
                 {
                     TransactionId = transaction.Id,
                     GrossAmount = installmentAmount,
-                    NetAmount = transaction.NetAmount / transaction.Installments,
+                    NetAmount = transaction.NetAmount / (transaction.Installments == 0 ? 1 : transaction.Installments),
                     Number = i,
                     ExpectedPaymentDate = paymentDate.AddMonths(i),
                 };

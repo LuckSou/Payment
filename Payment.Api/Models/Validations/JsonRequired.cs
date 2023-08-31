@@ -58,4 +58,12 @@ namespace Payment.Api.Models.Validations
             return ValidationResult.Success;
         }
     }
+
+    public class JsonInstallments : RangeAttribute
+    {
+        public JsonInstallments() : base(1, 999)
+        {
+            ErrorMessage = "{0}: Between {1} and {2}.";
+        }
+    }
 }
