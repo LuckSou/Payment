@@ -7,7 +7,6 @@ Processamento de transações com geração automática de NSU.
 Análise e gerenciamento de antecipações.
 Validação e gerenciamento de transações com cartão.
 Manipulação de parcelas e seus pagamentos.
-... (Adicione mais recursos, se aplicável)
 
 # Tecnologias Utilizadas
 ASP.NET Core
